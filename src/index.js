@@ -66,6 +66,7 @@ export default class OcadTiler {
         ? objects
         : objects.filter(o => options.includeSymbols.includes(o.sym)),
       document,
+      ...options.ocad2geojsonOptions,
     })
 
     const mapGroup = svg.getElementsByTagName('g')[0]
