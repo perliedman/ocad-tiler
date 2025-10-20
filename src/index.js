@@ -55,10 +55,7 @@ export default class OcadTiler {
       )
     }
 
-    const objects = this.getObjects(
-      extent,
-      (options.buffer || 256) * resolution
-    )
+    const objects = this.getObjects(extent, (options.buffer || 64) * resolution)
 
     const document = DOMImplementation.createDocument(null, 'xml', null)
     const svg = ocadToSvg(this.ocadFile, {
