@@ -95,8 +95,8 @@ export default class OcadTiler {
 
   getObjects(extent, buffer) {
     const crs = this.ocadFile.getCrs()
-    extent = projectedExtentToMapCoords(extent, crs)
     extent = enlargeExtent(extent, buffer)
+    extent = projectedExtentToMapCoords(extent, crs)
     return this.index
       .search(extent[0], extent[1], extent[2], extent[3])
       .map(i => this.ocadFile.objects[i])
